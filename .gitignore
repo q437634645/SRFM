@@ -1,0 +1,10 @@
+## Editors
+*~
+*.swp
+*
+
+## c++
+*.obj
+*.exe
+*.s
+*.txt
