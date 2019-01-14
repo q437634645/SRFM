@@ -54,7 +54,7 @@ public:
 	int bufHeight;
 	Device(){
 		WNDCLASS wndclass;
-		wndclass.style = CS_HREDRAW | CS_VREDRAW; //Window 
+		wndclass.style = CS_HREDRAW | CS_VREDRAW; //Window
 		wndclass.lpfnWndProc = WndProc;
 		wndclass.cbClsExtra = 0;
 		wndclass.cbWndExtra = 0;
@@ -64,17 +64,17 @@ public:
 		wndclass.hbrBackground = NULL;
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = "log";
-	
+
 		if(!RegisterClass(&wndclass)){
 			std::cerr<<"RegisterClass failed."<<std::endl;
 		}
-	
+
 		hWindow = CreateWindow("log", "log",
 				WS_OVERLAPPEDWINDOW,
 				CW_USEDEFAULT, CW_USEDEFAULT,
 				CW_USEDEFAULT, CW_USEDEFAULT,
 				NULL, NULL, NULL, NULL);
-	
+
 		ShowWindow(hWindow, 1);
 		UpdateWindow(hWindow);
 
@@ -262,7 +262,7 @@ void SetMatrixRotate(Mat &m,float x, float y,float z,float theta){
 
 void SetMatrixPerspective(Mat &m,float fov,float aspect,float n,float f){
 	float fax = 1.0f/tan( fov * 0.5);
-	m[0][0] = fax / aspect; 
+	m[0][0] = fax / aspect;
 	m[1][1] = fax;
 	m[2][2] = (f+n)/(f-n);
 	m[3][2] = -2*n*f/(f-n);
@@ -349,7 +349,7 @@ int main(){
 			lastTime=curTime;
 			// transform----------------
 			Mat T,R;
-			SetMatrixRotate(R,1.0f,1.0f,1.0f,theta);
+			SetMatrixRotate(R,0.0f,1.0f,0.0f,theta);
 			SetMatrixTranslate(T,0.0f,0.0f,5.0f);
 			Mat des;
 			des = R*T;
